@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apa itu Mind Mapping?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .text-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .bounce-in {
+        animation: bounceIn 0.8s ease-out;
+      }
+
+      @keyframes bounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+        70% {
+          transform: scale(0.9);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .pulse-glow {
+        animation: pulseGlow 2s infinite;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+        }
+      }
+
+      .mind-map-node {
+        transition: all 0.3s ease;
+      }
+
+      .mind-map-node:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .comic-style {
+        border: 4px solid #000;
+        box-shadow: 4px 4px 0px #000;
+      }
+
+      .speech-bubble {
+        position: relative;
+        background: white;
+        border-radius: 20px;
+        border: 3px solid #000;
+        padding: 20px;
+      }
+
+      .speech-bubble:after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50px;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: white;
+        border-bottom: 0;
+        margin-left: -20px;
+        margin-bottom: -3px;
+      }
+
+      .speech-bubble:before {
+        content: "";
+        position: absolute;
+        bottom: -23px;
+        left: 50px;
+        width: 0;
+        height: 0;
+        border: 20px solid transparent;
+        border-top-color: #000;
+        border-bottom: 0;
+        margin-left: -20px;
+      }
+
+      .parallax-bg {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-red-500 via-purple-500 to-blue-500">
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center justify-center relative overflow-hidden"
+    >
+      <!-- Animated Background Elements -->
+      <div class="absolute inset-0">
+        <div
+          class="floating absolute top-20 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-70"
+        ></div>
+        <div
+          class="floating absolute top-40 right-20 w-16 h-16 bg-pink-400 rounded-full opacity-60"
+          style="animation-delay: 1s"
+        ></div>
+        <div
+          class="floating absolute bottom-20 left-20 w-24 h-24 bg-green-400 rounded-full opacity-50"
+          style="animation-delay: 2s"
+        ></div>
+        <div
+          class="floating absolute bottom-40 right-10 w-18 h-18 bg-blue-400 rounded-full opacity-80"
+          style="animation-delay: 1.5s"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6 text-center relative z-10">
+        <h1
+          class="text-6xl md:text-8xl font-black text-white mb-8 bounce-in comic-style bg-white text-black px-8 py-4 rounded-3xl transform -rotate-2"
+        >
+          Apa sih<br />
+          <span class="text-gradient">MIND MAPPING</span><br />
+          itu?
+        </h1>
+
+        <div class="speech-bubble max-w-2xl mx-auto mb-12 transform rotate-1">
+          <p class="text-lg md:text-xl text-gray-800 font-semibold">
+            Temukan rahasia teknik brainstorming yang revolusioner untuk
+            meningkatkan kreativitas dan produktivitas Anda!
+          </p>
+        </div>
+
+        <button
+          onclick="scrollToSection('about')"
+          class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-xl comic-style hover:scale-105 transform transition-all duration-300 pulse-glow"
+        >
+          Jelajahi Sekarang! 🚀
+        </button>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white relative overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
+            <div
+              class="comic-style bg-black text-white p-8 rounded-3xl transform -rotate-2"
+            >
+              <h2 class="text-4xl font-black mb-6 text-yellow-400">
+                Mind Mapping Origins
+              </h2>
+              <p class="text-lg leading-relaxed">
+                Mind mapping bermula dari zaman kuno dan dipopulerkan oleh
+                <strong>Tony Buzan</strong> pada 1970an sebagai teknik
+                brainstorming yang lebih baik. Buzan menekankan tema utama,
+                cabang hierarkis, warna, dan ilustrasi. Joseph Donald Novak juga
+                mengembangkan concept maps. Sejak itu, mind mapping diadopsi
+                secara luas dan didukung oleh berbagai perangkat lunak.
+              </p>
+            </div>
+          </div>
+
+          <div class="fade-in">
+            <div
+              class="bg-gradient-to-br from-purple-400 to-pink-400 p-8 rounded-3xl comic-style text-white transform rotate-1"
+            >
+              <h3 class="text-3xl font-black mb-6">5 Jenis Mind Mapping</h3>
+              <div class="space-y-4">
+                <div
+                  class="mind-map-node bg-white text-purple-800 p-4 rounded-2xl font-bold"
+                >
+                  1. Mind Map Klasik (Buzan)
+                </div>
+                <div
+                  class="mind-map-node bg-white text-purple-800 p-4 rounded-2xl font-bold"
+                >
+                  2. Concept Map
+                </div>
+                <div
+                  class="mind-map-node bg-white text-purple-800 p-4 rounded-2xl font-bold"
+                >
+                  3. Flow Map
+                </div>
+                <div
+                  class="mind-map-node bg-white text-purple-800 p-4 rounded-2xl font-bold"
+                >
+                  4. Bubble Map
+                </div>
+                <div
+                  class="mind-map-node bg-white text-purple-800 p-4 rounded-2xl font-bold"
+                >
+                  5. Multi-Flow Map
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tony Buzan Section -->
+    <section
+      class="py-20 bg-gradient-to-r from-yellow-400 via-red-400 to-pink-400 relative"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <div class="fade-in">
+          <div class="max-w-4xl mx-auto">
+            <!-- Replace placeholder with actual image -->
+            <div
+              class="w-48 h-48 mx-auto mb-8 overflow-hidden rounded-full comic-style hover:scale-110 transform transition-all duration-300"
+            >
+              <img
+                src="image/image.png"
+                alt="Tony Buzan"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <h2
+              class="text-5xl font-black text-white mb-8 comic-style bg-black px-8 py-4 rounded-3xl inline-block"
+            >
+              Tony Buzan
+            </h2>
+
+            <div class="speech-bubble bg-white max-w-3xl mx-auto">
+              <p class="text-lg text-gray-800 leading-relaxed font-semibold">
+                "Bapak Mind Mapping" yang memperkenalkan metode revolusioner
+                untuk mengorganisir pikiran dan informasi. Tekniknya telah
+                membantu jutaan orang di seluruh dunia meningkatkan kreativitas
+                dan produktivitas mereka.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Definition Section -->
+    <section class="py-20 bg-black text-white relative overflow-hidden">
+      <div class="container mx-auto px-6">
+        <div class="fade-in">
+          <h2 class="text-5xl font-black text-center mb-12 text-gradient">
+            Apa itu Mind Mapping?
+          </h2>
+
+          <div
+            class="max-w-4xl mx-auto bg-gradient-to-r from-purple-600 to-blue-600 p-8 rounded-3xl comic-style"
+          >
+            <p class="text-xl leading-relaxed mb-6">
+              Mind mapping adalah metode mencatat yang memanfaatkan kekuatan
+              visual dan kreativitas untuk memetakan informasi dari satu konsep
+              utama, yang kemudian dikaitkan menjadi melalui cabang-cabang ide
+              yang saling terkait.
+            </p>
+
+            <p class="text-xl leading-relaxed mb-6">
+              Dengan menggunakan elemen-elemen seperti gambar, warna, dan
+              simbol, mind mapping tidak hanya membantu meningkatkan
+              kreativitas, tetapi juga mempermudah pemahaman dan efisiensi dalam
+              berbagai aktivitas seperti belajar, merencakan proyek, atau
+              melakukan brainstorming.
+            </p>
+
+            <p class="text-xl leading-relaxed">
+              Struktur non-linear yang menjadi ciri khasnya membedakannya secara
+              signifikan dari metode catatan tradisional, memfasilitasi alat
+              yang sangat fleksibel dan efektif. Di Indonesia, mind mapping
+              sangat populer sebagai cara untuk mengorganisir pikiran dan
+              informasi, membantu individu dan kelompok dalam berbagai konteks,
+              mulai dari pendidikan hingga bisnis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fun Facts Section -->
+    <section
+      class="py-20 bg-gradient-to-br from-green-400 via-blue-400 to-purple-500"
+    >
+      <div class="container mx-auto px-6">
+        <div class="fade-in">
+          <h2
+            class="text-5xl font-black text-center mb-12 text-white comic-style bg-red-500 inline-block px-8 py-4 rounded-3xl mx-auto"
+          >
+            FUN FACT<br />MIND MAPPING!!!
+          </h2>
+
+          <div class="max-w-4xl mx-auto bg-white p-8 rounded-3xl comic-style">
+            <p class="text-lg text-gray-800 leading-relaxed font-semibold">
+              Mind mapping itu hebat karena bikin kita jadi lebih kreatif dan
+              gampang mengingat ide-ide baru, soalnya otak kita adalah berpikir
+              pakai gambar dan warna. Selain itu jadi lebih mudah mengingat dan
+              ingat informasi karena sama seperti cara kerja otak kita disajikan
+              secara visual dan terstruktur, bahkan cuma dengan tulisan panjang.
+              Mind mapping juga bikin kerja kita lebih efisien; kita bisa
+              mencatat lebih cepat, fokus ke hal penting, dan gampang banget
+              kalau mau mengulangi pelajaran. Ini juga bantu kita lebih
+              produktif dalam merencakan sesuatu, mengambil keputusan, atau
+              mengatur waktu. Singkatnya, mind mapping itu fleksibel dan bisa
+              dipakai untuk banyak hal, bikin belajar dan kerja jadi lebih
+              menyenangkan dan efektif.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Fade in animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Smooth scroll function
+      function scrollToSection(sectionId) {
+        document.getElementById(sectionId).scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
+      // Interactive mind map demo
+      function animateNode(node) {
+        // Remove any existing animation classes
+        node.classList.remove(
+          "animate-bounce",
+          "animate-pulse",
+          "animate-spin"
+        );
+
+        // Add random animation
+        const animations = ["animate-bounce", "animate-pulse"];
+        const randomAnimation =
+          animations[Math.floor(Math.random() * animations.length)];
+
+        node.classList.add(randomAnimation);
+
+        // Create ripple effect
+        const ripple = document.createElement("div");
+        ripple.className =
+          "absolute inset-0 rounded-full border-4 border-white animate-ping";
+        node.appendChild(ripple);
+
+        // Remove ripple after animation
+        setTimeout(() => {
+          ripple.remove();
+          node.classList.remove(randomAnimation);
+        }, 1000);
+
+        // Add congratulatory message
+        showMessage("Great! Mind Mapping is all about connections! 🧠✨");
+      }
+
+      // Show message function
+      function showMessage(text) {
+        const messageDiv = document.createElement("div");
+        messageDiv.className =
+          "fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-full font-bold z-50 animate-bounce";
+        messageDiv.textContent = text;
+        document.body.appendChild(messageDiv);
+
+        setTimeout(() => {
+          messageDiv.remove();
+        }, 3000);
+      }
+
+      // Add some interactive hover effects
+      document.querySelectorAll(".mind-map-node").forEach((node) => {
+        node.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.1) rotate(2deg)";
+        });
+
+        node.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1) rotate(0deg)";
+        });
+      });
+
+      // Add click effects to buttons
+      document.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", function () {
+          this.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            this.style.transform = "scale(1)";
+          }, 100);
+        });
+      });
+
+      // Parallax effect for background elements
+      window.addEventListener("scroll", function () {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".floating");
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5 + index * 0.1;
+          element.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+      });
+
+      // Add typing effect to the main title
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      // Initialize typing effect when page loads
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          const funFactSection = document.querySelector("#about");
+          if (funFactSection) {
+            funFactSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 2000);
+      });
+    </script>
+  </body>
+</html>
